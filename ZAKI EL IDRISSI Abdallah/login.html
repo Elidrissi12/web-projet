@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <style>
+
+          input[type=text], select {
+  width: 300px;
+  padding: 12px 20px;
+    margin: 8px 0;
+   background-color: transparent;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=email], select {
+  width: 300px;
+  padding: 12px 20px;
+    margin: 8px 0;
+   background-color: transparent;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 300px;
+  padding: 12px 20px;
+    margin: 8px 0;
+   background-color: transparent;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.button {
+    background-color: white; 
+    border: none;
+    color: white;
+    height: 40px;
+    width: 90px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color: white; 
+    color: #df74c4; 
+    border: 2px solid #dfdfdf;
+  }
+  
+  .button1:hover {
+    background-color: #df74c4;
+    color: rgb(243, 243, 243);
+  }
+  .carre1{
+    border: 3px solid;
+    height: 300px;
+    width: 300px;
+    padding: 40px;
+    margin-top: 90px;
+    margin-left: 120px;
+    color:rgb(235, 74, 162);
+   
+  }
+  .carre{
+    border: 3px solid;
+    height: 300px;
+    width: 300px;
+    padding: 40px;
+    margin-left: 700px;
+    margin-top: -380px;
+    color:rgb(235, 74, 162);
+  }
+  #zakzak{
+    position: absolute;
+margin-top: -100px;
+    z-index: -1;
+}
+
+
+        </style>
+    </head>
+    <body>
+
+      <div id="zakzak">
+        <img src="https://marketplace.canva.com/EAD_IsMYK_w/1/0/1600w/canva-arri%C3%A8re-plan-virtuel-arc-en-ciel-d%C3%A9grad%C3%A9-rose-orange-et-bleu-VwJMC37j5jQ.jpg" alt="" width="1350px"; height="1000px">
+    </div>
+
+    <center><div id="logo"><h1 style="font-size: 60px; margin-right: 120px;color: rgb(235, 74, 162);">GOLDEN HOUSE</h1></div></center>
+                <div class="carre1" >
+                    <div style="font-size: 40px;color: rgb(235, 74, 162);">Sign Up</div>
+                    <br>
+               <input type="text" id="in1" placeholder="Enter your name" style="color: #f1f1f1;"><br>
+            <input type="text" id="in2" placeholder="Enter a password" style="color: white;"><br>
+            <input type="email" id="mail" placeholder="Enter your mail" style="color: #f1f1f1;"><br>
+            <span id="s1" style="color: red;"></span><br>
+            <center><button  class="button button1" onclick="add()">sign</button></center>
+            </div>
+            <div class="carre">
+                <form action="C:\Users\hp\Desktop\home.html" onsubmit="return login()">
+                    <div style="font-size: 40px;color: rgb(235, 74, 162);">Log In</div><br>
+                    <input type="text" id="in3" placeholder="Enter your username" style="color: #f1f1f1;"><br>                 
+                    <input type="password" id="in4" placeholder="Enter your password" style="color: #f1f1f1;"><br>
+                    <span id="s2" style="color: red;"></span><br>
+                    <input type="checkbox" onclick="showPass()"> Show password <br><br>
+                    <center><input class="button button1" type="submit" value="login"></center>
+                </form>
+        <script>
+              var users = [{ username:'ali el', password:'ali123456' },
+             { username:'amine ze', password:'12345678' } ]
+
+
+             function add(){
+
+                var userNameValue = document.getElementById('in1').value;
+                var passValue = document.getElementById('in2').value;
+     
+          
+                if(passValue.length < 8){
+
+                    document.getElementById('s1').innerHTML = 'password must contains 8 chars';
+                }else{
+                    var user ={};
+                    user.username = userNameValue;
+                    user.password= passValue;
+                 
+                    users.push(user);
+                    console.log(users)
+                }
+
+             }
+             function showPass(){
+
+var passInput = document.getElementById('in4');
+
+if(passInput.type == 'password'){
+    passInput.type = 'text'
+}else if(passInput.type == 'text'){
+    passInput.type = 'password'
+}
+}
+
+function login(){
+
+var userValue = document.getElementById('in3').value;
+var passValue = document.getElementById('in4').value;
+
+if(userValue == ''){
+    document.getElementById('s2').innerHTML = 'user name must be filed out';
+    return false;
+}
+else if(passValue == ''){
+    document.getElementById('s2').innerHTML = 'password name must be filed out';
+    return false;
+}
+
+for(var i=0; i<users.length;i++){
+
+    if(userValue == users[i].username && passValue == users[i].password){
+        return true;
+    }
+}
+document.getElementById('s2').innerHTML = 'username and password do not match';
+        return false;
+}
+
+        </script>
+
+            </div>
+        </div>
+        
+    </body>
+</html>
